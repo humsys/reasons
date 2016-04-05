@@ -1,0 +1,27 @@
+{
+  "name": "reasons-tests",
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "reasons": "file:/warez/reasons"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0",
+    "css-img-datauri-stream": "^0.1.5",
+    "parcelify": "^2.1.0"
+  },
+  "browserify": {
+    "transform": [
+      ["babelify", { "presets": ["react", "es2015"] }]
+    ]
+  },
+  "scripts": {
+    "budo": "budo reviewer.js --css _build.css -- --debug -p [ parcelify -t css-img-datauri-stream -d . -o _build.css ]",
+    "build": "browserify --debug -p [ parcelify -t css-img-datauri-stream -d . -o _build.css ] reviewer.js -o _build.js",
+    "watch": "watchify -d -p [ parcelify -t css-img-datauri-stream -wo _build.css ] reviewer.js -o _build.js"
+  }
+}

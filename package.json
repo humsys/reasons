@@ -1,0 +1,43 @@
+{
+  "name": "reasons",
+  "author": "Joe Edelman",
+  "version": "0.1.0",
+  "license": "ISC",
+  "repository": "livable/reasons",
+  "main": "index.js",
+  "style": "style.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jxe/reasons"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "react",
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "core-js": "^2.2.1",
+    "firebase": "latest",
+    "moment": "^2.12.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-ratchet": "jxe/react-ratchet"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0",
+    "css-img-datauri-stream": "^0.1.5"
+  }
+}

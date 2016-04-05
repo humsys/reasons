@@ -1,0 +1,124 @@
+.Activity {
+  position: relative;
+  padding: 5px;
+  padding-top: 30px;
+  border-radius: 5px;
+  background: #eee;
+  margin-top:15px;
+}
+
+.Activity> b {
+  font-size: 14px;
+  text-transform: uppercase;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #777;
+  font-weight: normal;
+}
+
+.Activity > img {
+  position: absolute;
+  top: -14px;
+  left: 5px;
+  width: 32px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.Activity .Details {
+  /*border-left: 4px gray solid;*/
+  /*padding-left: 10px;*/
+  font-size: 14px;
+  color: #666;
+  margin: 0px 20px;
+  margin-top: 15px;
+}
+
+.Activity .tstamp {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: normal;
+}
+
+.Activity .footer {
+  text-align: right;
+  font-size: 14px;
+  /*text-transform: uppercase;*/
+}
+
+.Activity .footer .icon {
+  font-size: 14px;
+}
+
+.LabelizingTextField {
+  position: relative;
+}
+
+.LabelizingTextField .accessory {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.ButtonBar {
+  display: flex;
+}
+
+input[type="search"] {
+  margin-bottom: 6px;
+}
+
+.ButtonBar .ButtonBarButton {
+  flex: 1.0;
+  padding: 5px;
+  text-align: center;
+  background: #e6e5e5;
+  margin: 0px 4px;
+  font-size: 15px;
+  font-variant: small-caps;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.ButtonBar .ButtonBarButton .icon {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+
+
+.AutocompleteField{
+  background-color: #eee;
+  padding: 2px 0px;
+}
+
+.AutocompleteField input {
+  text-align: center;
+  display: block;
+  width: 275px;
+  padding: 4px 10px;
+  margin: 5px 10px;
+  box-sizing: content-box;
+  font-size: 16px;
+}
+
+.AutocompleteField input:focus {
+  text-align: left;
+}
+
+.suggestions {
+  /*padding: 10px;*/
+  box-shadow: black 0px 2px 3px;
+  background: white;
+}
+
+.completion > b {
+  font-size: 14px;
+}
+
+.completion p {
+  color: gray;
+  font-size: 11px;
+}
