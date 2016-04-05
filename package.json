@@ -6,10 +6,6 @@
   "repository": "livable/reasons",
   "main": "index.js",
   "style": "style.css",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jxe/reasons"
-  },
   "browserify": {
     "transform": [
       [
