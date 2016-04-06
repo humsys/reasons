@@ -9,14 +9,9 @@ import {
   Pager
 } from '../utils/widgets.jsx'
 
-import {ReasonCell} from '../cell.jsx'
+import {ReasonCell, ReasonLabel} from '../cell.jsx'
 import ReasonPickerModal from '../pickerModal.jsx'
 import Reasons from '..'
-
-
-const ReasonLabel = ({x}) => (
-  <div className="tfLabel">{x.title}</div>
-)
 
 let DAYS = 24*60*60*1000
 
@@ -94,21 +89,23 @@ export default class ActivityAssessment extends React.Component {
           }
           />
       </div>
-      {
-        showButtons && <ButtonBar
-          onClicked={x => this.clicked(x)}
-          disabled={!reason || !reason.id}
-          buttons={[
-            ["Not good for this", "trash"],
-            ["Worked out", "star"]
-          ]}/>
-      }
 
       <TableRenderer
         list={matches}
         cells={ReasonCell}
         onClicked={obj => this.setState({reason: obj})}
         />
+
+      {
+        showButtons && <ButtonBar
+          onClicked={x => this.clicked(x)}
+          disabled={!reason || !reason.id}
+          buttons={[
+            ["Not good for this", "trash", "nogood"],
+            ["Worked out", "star", "good"]
+          ]}/>
+      }
+
 
       <div className="Details">
         You were <b>{activity.verbPhrase}</b> like {activity.examples}

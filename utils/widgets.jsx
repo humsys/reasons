@@ -52,7 +52,7 @@ export const LabelizingTextField = (props) => {
   }
 
   let Label = props.renderer
-  return <div>
+  return <div className="LabelizingTextField LabelBox">
     <Label x={props.value}/>
     <a onClick={props.onCleared}>
        <span className="icon icon-close"></span>
@@ -79,8 +79,12 @@ export class Pager extends React.Component {
 
   render(){
     // console.log(this.state.subpage)
-    if (this.state.subpage) return this.state.subpage
-    else return <div>{this.props.children}</div>
+    return <div>
+      <div style={this.state.subpage && {display:"none"}}>
+        {this.props.children}
+      </div>
+      {this.state.subpage}
+    </div>
   }
 
   getChildContext() {
@@ -133,7 +137,7 @@ export const ButtonBar = ({buttons, disabled, onClicked}) => (
         <a
           key={x[0]}
           className={`ButtonBarButton ${disabled && "disabled"}`}
-          onClick={() => onClicked(x[0])}
+          onClick={() => onClicked(x[2] || x[0])}
           >
           <span className={`icon icon-${x[1]}`}></span>
           <span>{x[0]}</span>

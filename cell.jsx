@@ -4,6 +4,15 @@ import { TextField } from './utils/widgets.jsx'
 import Reasons from '.'
 
 
+export const ReasonLabel = ({x}) => {
+  let sentence = Reasons.sentence(x.type)
+  return <div className="tfLabel">
+    {sentence[0]}
+    <b>{x.title}</b>
+    {sentence[1]}
+  </div>
+}
+
 export const ReasonCell = ({x, onClick}) => {
   let sentence = Reasons.sentence(x.type)
   let relationSentence = Reasons.relationSentence(x.rel)
