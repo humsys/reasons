@@ -91,6 +91,11 @@ input[type="search"] {
   margin-bottom: 6px;
 }
 
+.bonusRow {
+  color: #888;
+  font-style: italic;
+}
+
 .ButtonBar .ButtonBarButton {
   flex: 1.0;
   padding: 5px;

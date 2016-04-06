@@ -37,7 +37,7 @@ export class ReasonAdderCell extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = { active: false, text: "" }
+    this.state = { active: false, text: props.startingText || "" }
   }
 
   makeReason(){

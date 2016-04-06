@@ -3,6 +3,10 @@ import moment from 'moment'
 import url from 'url'
 
 import {
+  TableViewCell
+} from 'react-ratchet'
+
+import {
   LabelizingTextField,
   TableRenderer,
   ButtonBar,
@@ -27,6 +31,7 @@ export default class ActivityAssessment extends React.Component {
 
   clicked(x){
     if (!this.state.reason || !this.state.reason.id) return
+    if (x == 'skipped') return this.props.onSkipped(this.props.activity)
     let {onWasAssessed, activity} = this.props
     Reasons.pushAssessment(activity, x, this.state.reason)
     onWasAssessed(activity, x, this.state.reason)
@@ -92,6 +97,22 @@ export default class ActivityAssessment extends React.Component {
       <TableRenderer
         list={matches}
         cells={ReasonCell}
+        lastCell={
+          (reason && !solidReason) &&
+          <TableViewCell
+            className="bonusRow"
+            onClick={() => {
+              this.context.pager.pushSubpage(
+                <ReasonPickerModal
+                  startingText={reason}
+                  onPicked={obj => this.setState({reason:obj})}
+                  />
+              )
+            }}
+            >
+            Add a new reason
+          </TableViewCell>
+        }
         onClicked={obj => this.setState({reason: obj})}
         />
 
@@ -100,6 +121,7 @@ export default class ActivityAssessment extends React.Component {
           onClicked={x => this.clicked(x)}
           disabled={!reason || !reason.id}
           buttons={[
+            ["Don't know yet", "refresh", "skipped"],
             ["Not good for this", "trash", "nogood"],
             ["Worked out", "star", "good"]
           ]}/>
@@ -111,13 +133,6 @@ export default class ActivityAssessment extends React.Component {
         <div className="tstamp">
           {connective} {timeframe}
         </div>
-      </div>
-
-      <div className="footer">
-        <a onClick={() => this.props.onSkipped(activity)}>
-          <span className="icon icon-refresh"/>
-          Ask me later
-        </a>
       </div>
     </div>
   }

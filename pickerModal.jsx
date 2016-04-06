@@ -59,7 +59,11 @@ export default class ReasonPickerModal extends React.Component {
           />
         <TableRenderer
           firstCell={
-            <ReasonAdderCell type={type} onAdded={onPicked}/>
+            <ReasonAdderCell
+              startingText={this.props.startingText}
+              type={type}
+              onAdded={onPicked}
+              />
           }
           list={matches}
           cells={ReasonCell}

@@ -28,16 +28,17 @@ export const Tabs = ({states, state, onChanged}) => (
 
 
 
-export const TableRenderer = ({list, cells, firstCell, onClicked}) => {
+export const TableRenderer = ({list, cells, firstCell, lastCell, onClicked}) => {
   let CellRenderer = cells
   // if (!CellRenderer) throw "What the fuck!"
   // console.log('CellRenderer', CellRenderer)
-  if (!firstCell && (!list || !list.length)) return <div></div>
+  if (!firstCell && !lastCell && (!list || !list.length)) return <div></div>
   if (!list) list = []
   let cellList = list.map(
     i => <CellRenderer x={i} onClick={() => onClicked(i)}/>
   )
   if (firstCell) cellList.unshift(firstCell)
+  if (lastCell) cellList.push(lastCell)
   return <TableView> { cellList } </TableView>
 }
 
@@ -120,7 +121,10 @@ export class TextField extends React.Component {
 
   onKeyDown(evt){
     let {value, onSubmitted} = this.props
-    if (evt.key == 'Enter' && value && onSubmitted) onSubmitted(value)
+    if (evt.key == 'Enter'){
+      if (value && onSubmitted) onSubmitted(value)
+      evt.preventDefault()
+    }
   }
 
   componentDidMount(){
