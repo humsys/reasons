@@ -50,7 +50,6 @@ export default class ActivityAssessment extends React.Component {
   render(){
     let { active, reason, matches } = this.state
     let solidReason = reason && reason.id
-    let showButtons = active || solidReason
     let { activity } = this.props
     let elapsed = moment.duration(activity.elapsed).humanize()
     let span = activity.over[1] - activity.over[0]
@@ -97,7 +96,7 @@ export default class ActivityAssessment extends React.Component {
         />
 
       {
-        showButtons && <ButtonBar
+        solidReason && <ButtonBar
           onClicked={x => this.clicked(x)}
           disabled={!reason || !reason.id}
           buttons={[
