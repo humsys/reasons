@@ -1,3 +1,5 @@
+[![Gitter chat](https://badges.gitter.im/livablemedia/reasons.png)]
+(https://gitter.im/livablemedia/reasons)
 # Reasons
 
 Tools to support the collection of and analysis of user reasons, as per http://nxhx.org/maximizing/
@@ -67,4 +69,4 @@ let assessment = {
 
 ## Contributing
 
-* https://groups.google.com/forum/#!forum/reasons-dev
+* https://gitter.im/livablemedia/reasons
