@@ -70,3 +70,4 @@ let assessment = {
 ## Contributing
 
 * https://gitter.im/livablemedia/reasons
+* https://groups.google.com/forum/#!members/livable-media
